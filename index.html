@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memilih Elemen Berdasarkan ID</title>
+</head>
+<body>
+   
+    <!-- Elemen div yang akan kita pilih dari JS 
+    <div id="tutorial"></div>
+    <script type="text/javascript">
+        // mengakses elemen tutorial
+        var tutorial = document.getElementById("tutorial");
+
+        // mengisi teks ke dalam elemen
+        tutorial.innerText = "Tutorial Javascript";
+
+        // memberikan CSS ke elemen
+        tutorial.style.backgroundColor = "gold";
+        tutorial.style.padding = "10px";
+    </script>
+-->
+    <form name="biodata" method="POST">
+        <fieldset class="garis">
+        <legend>Form Biodata</legend>
+        <p>
+            <label>NIS:</label>
+            <input type="number" name="nis" id="val_nis" placeholder="Masukkan NIS anda" />
+        </p>
+        <p>
+            <label>Nama:</label>
+            <input type="text" name="nama" id="val_nama" placeholder="Masukkan nama anda" />
+        </p>
+        <p>
+            <label>Tempat lahir:</label>
+            <input type="text" name="tempat" id="val_tempat" placeholder="Masukkan tempat lahir anda" />
+        </p>
+        <p>
+            <label>Tanggal lahir:</label>
+            <input type="date" name="tanggal" id="val_tanggal" />
+        </p>
+        <p>
+            <input type="button" onclick="kiriminput()" name="submit" value="Send" />
+        </p>
+        </fieldset>
+        <script>
+            var garis = document.getElementsByClassName("garis");
+            console.log(garis);
+            var garis = document.getElementsByClassName("garis");
+            setInterval(function () {
+                garis[0].style.color = "lime";
+        
+                setTimeout(function () {
+                    garis[0].style.color = "blue";
+                }, 500)
+            }, 1000);
+          </script>
+    </form>
+    <br>
+    <table border="2" id="tabelinput">
+        <tr>
+            <td class="judul">NIS</td>
+            <td class="judul">Nama</td>
+            <td class="judul">Tempat lahir</td>
+            <td class="judul">Tanggal lahir</td>
+
+            <script>
+                var judul = document.getElementsByClassName("judul");
+                console.log(judul);
+                var judul = document.getElementsByClassName("judul");
+                setInterval(function () {
+                    judul[0].style.color = "red";
+                    judul[1].style.color = "lime";
+                    judul[2].style.color = "blue";
+                    judul[3].style.color = "yellow";
+
+                    setTimeout(function () {
+                        judul[0].style.color = "lime";
+                        judul[1].style.color = "blue";
+                        judul[2].style.color = "yellow";
+                        judul[3].style.color = "red";
+                    }, 500)
+                }, 1000);
+              </script>
+        </tr>
+    </table>
+    <script>
+        function kiriminput(){
+            var u=document.forms['biodata']['nis'].value;
+            var x=document.forms['biodata']['nama'].value;
+            var y=document.forms['biodata']['tempat'].value;
+            var z=document.forms['biodata']['tanggal'].value;
+
+            if(u==null || u=="")
+            {
+                document.getElementById('val_nis').innerHTML="Isi kolom NIS";
+                if(x==null || x=="")
+                {
+                    document.getElementById('val_nama').innerHTML="Isi kolom nama";
+                }else{
+                    document.getElementById('val_nama').innerHTML="Sudah Benar";
+                }
+            }else{
+                document.getElementById('val_nis').innerHTML="Sudah Benar";
+                if(x==null || x=="")
+                {
+                    document.getElementById('val_nama').innerHTML="Isi kolom nama";
+                }else{
+                    document.getElementById('val_nama').innerHTML="Sudah Benar";
+
+                    var table = document.getElementById("tabelinput");
+                    var row=table.insertRow(1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    var cell4 = row.insertCell(3);
+
+                    cell1.innerHTML=u;
+                    cell2.innerHTML=x;
+                    cell3.innerHTML=y;
+                    cell4.innerHTML=z;
+
+                }
+            }
+
+
+        }
+    </script>
+
+</body>
+</html>
